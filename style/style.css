@@ -1,0 +1,159 @@
+
+#decision_buy{
+    width: 90%; 
+    height: 80%; 
+    margin: auto; 
+    text-align: center; 
+    color: white; 
+    font-size: 11px; 
+    font-weight: bold; 
+    line-height: 24px; 
+    background-color: crimson; 
+    border-radius: 5px;
+}
+
+#decision_sell{
+    width: 90%; 
+    height: 80%; 
+    margin: auto; 
+    text-align: center; 
+    color: white; 
+    font-size: 11px; 
+    font-weight: bold; 
+    line-height: 24px; 
+    background-color:dodgerblue; 
+    border-radius: 5px;
+}
+
+#decision_empty{
+    width: 90%; 
+    height: 80%; 
+    margin: auto; 
+    text-align: center; 
+    color: white; 
+    font-size: 11px; 
+    font-weight: bold; 
+    line-height: 24px; 
+    background-color:rgb(153, 153, 153); 
+    border-radius: 5px;
+}
+
+.table_capital_stock_header{
+    height: 25px;  
+    text-align: center; 
+    font-weight: 100; 
+    font-size: 12px;
+    line-height: 25px;
+
+    background-color: rgb(246, 246, 246);
+
+    border : 1px solid rgb(198, 198, 198); border-collapse : collapse;
+}
+
+.table_capital_stock_value{
+    height: 25px;  
+    text-align: right; 
+    padding-right:10px;
+    font-weight: bold; 
+    font-size: 13px;
+    line-height: 25px;
+
+    border : 1px solid rgb(198, 198, 198); border-collapse : collapse;
+}
+
+
+
+.table_roe_year{
+    width: 16.6%; 
+    height: 20px;  
+    font-size: 12px;
+    text-align: center; 
+    line-height: 20px;
+    /* font-weight: bold;  */
+    background-color: rgb(255, 255, 255);
+    
+    border-bottom : 1px solid rgb(0, 0, 0); 
+    border-collapse : collapse;
+}
+
+.table_roe_pre{
+    height: 25px;  
+    text-align: center; 
+    font-weight: bold; 
+    font-size: 13px;
+    line-height: 25px;
+
+    border : 1px solid rgb(198, 198, 198); border-collapse : collapse;
+}
+
+.table_roe_fu{
+    height: 25px;  
+    text-align: center; 
+    font-weight: bold; 
+    font-size: 13px;
+    line-height: 25px;
+    color: rgb(0, 0, 0);
+
+    background-color: rgb(255, 215, 215);
+
+    border : 1px solid rgb(198, 198, 198); border-collapse : collapse;
+}
+
+
+#div_capital_stock{
+    width: 96%;
+    margin-top: 20px;
+    margin-left: 2%;
+}
+
+#div_capital{
+    width: 46%;
+    float: left;
+}
+
+#div_stock{
+    width: 46%;
+    float: left;
+}
+
+
+
+
+
+
+.table_price_header{
+    width: 16.6%; 
+    height: 20px;  
+    font-size: 12px;
+    text-align: center; 
+    line-height: 20px;
+    font-weight: bold; 
+    background-color: rgb(255, 255, 255);
+    
+    border-bottom : 1px solid rgb(0, 0, 0); 
+    border-collapse : collapse;
+}
+
+.table_price_value1{
+    height: 25px;  
+    text-align: right; 
+    font-weight: bold; 
+    font-size: 13px;
+    line-height: 25px;
+    padding-right: 10px;
+    color: black;
+
+    border : 1px solid rgb(198, 198, 198); border-collapse : collapse;
+}
+
+
+.form_table{
+    height: 25px;  
+    text-align: center; 
+    font-weight: bold; 
+    font-size: 11px;
+    line-height: 25px;
+
+    /* border : 1px solid rgb(198, 198, 198); border-collapse : collapse; */
+}
+

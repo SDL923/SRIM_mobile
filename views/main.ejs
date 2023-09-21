@@ -22,6 +22,157 @@
     <meta property="og:description" content="Furniture & Product Design">
 
 
+    <!-- AJAX로 img_stock_graph scr 보내기 -->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script>
+      $(document).ready(function() {
+        // candle_day
+        $("#candle_day").on("click", function() {
+          // Make an AJAX POST request to the server
+          $.ajax({
+            url: "/sendData_candle_day", // Endpoint on the server
+            type: "POST",
+            dataType: "JSON"
+          })
+          .done(function(data) {
+            // Display the received data on the web page
+            $("#img_stock_graph").attr('src', data.changeSrc);
+          })
+          .fail(function(xhr, status, errorThrown) {
+            alert("Ajax failed");
+          });
+        });
+
+
+        // candle_week
+        $("#candle_week").on("click", function() {
+          // Make an AJAX POST request to the server
+          $.ajax({
+            url: "/sendData_candle_week", // Endpoint on the server
+            type: "POST",
+            dataType: "JSON"
+          })
+          .done(function(data) {
+            // Display the received data on the web page
+            $("#img_stock_graph").attr('src', data.changeSrc);
+          })
+          .fail(function(xhr, status, errorThrown) {
+            alert("Ajax failed");
+          });
+        });
+
+
+        // candle_month
+        $("#candle_month").on("click", function() {
+          // Make an AJAX POST request to the server
+          $.ajax({
+            url: "/sendData_candle_month", // Endpoint on the server
+            type: "POST",
+            dataType: "JSON"
+          })
+          .done(function(data) {
+            // Display the received data on the web page
+            $("#img_stock_graph").attr('src', data.changeSrc);
+          })
+          .fail(function(xhr, status, errorThrown) {
+            alert("Ajax failed");
+          });
+        });
+
+
+        // line_day
+        $("#line_day").on("click", function() {
+          // Make an AJAX POST request to the server
+          $.ajax({
+            url: "/sendData_line_day", // Endpoint on the server
+            type: "POST",
+            dataType: "JSON"
+          })
+          .done(function(data) {
+            // Display the received data on the web page
+            $("#img_stock_graph").attr('src', data.changeSrc);
+          })
+          .fail(function(xhr, status, errorThrown) {
+            alert("Ajax failed");
+          });
+        });
+
+
+        // line_month3
+        $("#line_month3").on("click", function() {
+          // Make an AJAX POST request to the server
+          $.ajax({
+            url: "/sendData_line_month3", // Endpoint on the server
+            type: "POST",
+            dataType: "JSON"
+          })
+          .done(function(data) {
+            // Display the received data on the web page
+            $("#img_stock_graph").attr('src', data.changeSrc);
+          })
+          .fail(function(xhr, status, errorThrown) {
+            alert("Ajax failed");
+          });
+        });
+
+
+        // line_year1
+        $("#line_year1").on("click", function() {
+          // Make an AJAX POST request to the server
+          $.ajax({
+            url: "/sendData_line_year1", // Endpoint on the server
+            type: "POST",
+            dataType: "JSON"
+          })
+          .done(function(data) {
+            // Display the received data on the web page
+            $("#img_stock_graph").attr('src', data.changeSrc);
+          })
+          .fail(function(xhr, status, errorThrown) {
+            alert("Ajax failed");
+          });
+        });
+
+
+        // line_year3
+        $("#line_year3").on("click", function() {
+          // Make an AJAX POST request to the server
+          $.ajax({
+            url: "/sendData_line_year3", // Endpoint on the server
+            type: "POST",
+            dataType: "JSON"
+          })
+          .done(function(data) {
+            // Display the received data on the web page
+            $("#img_stock_graph").attr('src', data.changeSrc);
+          })
+          .fail(function(xhr, status, errorThrown) {
+            alert("Ajax failed");
+          });
+        });
+
+
+        // line_year10
+        $("#line_year10").on("click", function() {
+          // Make an AJAX POST request to the server
+          $.ajax({
+            url: "/sendData_line_year10", // Endpoint on the server
+            type: "POST",
+            dataType: "JSON"
+          })
+          .done(function(data) {
+            // Display the received data on the web page
+            $("#img_stock_graph").attr('src', data.changeSrc);
+          })
+          .fail(function(xhr, status, errorThrown) {
+            alert("Ajax failed");
+          });
+        });
+      });
+    </script>
+
+
+
 </head>
 <body style="overflow: scroll;">
 
@@ -59,7 +210,7 @@
         <td style="width: auto; font-size: 20px; font-weight: bold; text-align: left; padding-left: 6px; padding-right: 7px;"><%= _stock_price %><span style="font-size: 10px;">원</span></td>
         <td style="width: 50px; height: 25px;">
           <% if(_buy_or_sell=="empty"){ %>
-            <div id="decision_empty">BUY</div>
+            <div id="decision_empty">-</div>
           <% }else if(_buy_or_sell=="BUY"){ %>
             <div id="decision_buy">BUY</div>
           <% }else if(_buy_or_sell=="SELL 1"){ %>
@@ -207,40 +358,36 @@
           <td class="form_table" style="width: 18%;"></td>
         </tr>
 
-      </table>
+      </table>  
 
     </form>
-
-
-    <!-- <form action="/name" method="get" style="height: 50px;">
-      <label style="font-size: 20px; font-weight: bold; margin-right: 3px;">학번:</label>
-      <input type="text" id="fyear" name="fyear" style="width: 30px; height: 25px; font-size: 20px; margin-right: 10px;">
-
-      <label style="font-size: 20px; font-weight: bold; margin-right: 3px; margin-right: 5px;">이름:</label>
-      <input type="text" id="fname" name="fname" style="width: 70px; height: 25px; font-size: 20px;">
-
-      <input type="submit" value="GO" style="width: 40px; height: 30px; text-align: center; margin-left: 10px; color: white; background-color: #3478F6; border-radius: 30px; outline:none; font-weight: bold;">
-    </form>  -->
 
 
     <div style="width: 100%; height: 5px; margin-top: 20px; background-color: rgb(246, 246, 246);"></div>
 
 
 
+    <!-- 여기 아래 그래프 나오는 부분부터 못함, 입력한 종목코드를 기역하는 방법을 모르겠음 -->
+
+    <table style="width: 96%; margin-left: 2%; font-size: 11px; ">  
+      <tr class="table_roe_year">
+        <!-- <td class="table_stock_graph_time" onclick="candle_day()" >일봉</td> -->
+        <td class="table_stock_graph_time" id="candle_day">일봉</td>
+        <td class="table_stock_graph_time" id="candle_week">주봉</td>
+        <td class="table_stock_graph_time" id="candle_month">월봉</td>
+        <td class="table_stock_graph_time" id="line_day">1일</td>
+        <td class="table_stock_graph_time" id="line_month3">3개월</td>
+        <td class="table_stock_graph_time" id="line_year1">1년</td>
+        <td class="table_stock_graph_time" id="line_year3">3년</td>
+        <td class="table_stock_graph_time" id="line_year10">10년</td>
+      </tr>
+    </table>
+
+    <img id="img_stock_graph" src="stockchart_noImg.png" style="width: 96%; margin-left: 2%;"/>
+
+    <div style="width: 100%; height: 5px; margin-top: 20px; background-color: rgb(246, 246, 246);"></div>
 
 
-
-
-
-
-    <!-- <img src="https://ssl.pstatic.net/imgfinance/chart/item/area/year3/005930.png?sidcode=1693664753187" style="width: 96%; margin-top: 50px; margin-left: 2%;"> -->
-
-
-
-
-
-
-    
 
 
 

@@ -9,11 +9,19 @@ app.set('view engine', 'ejs');
 //css 파일 적용
 app.use(express.static('style'))
 
+//image 파일 불러오기
+app.use(express.static('image'))
+
+// Use body-parser to parse JSON data in POST requests, ajax 전달을 위해
+const bodyParser = require('body-parser');
+app.use(bodyParser.json());
+
 
 
 // index page
 app.get('/', function(req, res) {
-  res.render('main', {_stock_name: "-", _stock_price: "-", _buy_or_sell: "empty", // _buy_or_sell은 화면에 나오지는 않고 정보 전달용
+  res.render('main', {_buy_or_sell: "empty", // _buy_or_sell은 화면에 나오지는 않고 정보 전달용
+  _stock_name: "-", _stock_price: "-",
   _capital: "-", _totalStock: "-", _companyStock: "-", _stocks: "-",
   _roe_p1: "-", _roe_p2: "-", _roe_p3: "-", _roe_f1: "-", _roe_f2: "-", _roe_f3: "-",
   _price_0y_10: "-", _price_10y_10: "-", _price_5y_10: "-",
@@ -23,7 +31,7 @@ app.get('/', function(req, res) {
 
 
 //----------------------------
-let input_code; //종목코드
+let input_code=0; //종목코드
 let input_rate=10; //요구수익률
 let stock_name;
 let stock_price;
@@ -53,8 +61,119 @@ let price_0y_8;
 let price_10y_8;
 let price_5y_8;
 
+//----------------------------
+
+
+// -------- AJAX로 img_stock_graph scr 보내기 --------
+// Route to handle the AJAX POST request
+
+// sendData_candle_day
+app.post('/sendData_candle_day', function(req, res) {
+  var changeSrc;
+  if(input_code==0){
+    changeSrc = 'stockchart_noImg.png'
+  }else{
+    changeSrc = 'https://ssl.pstatic.net/imgfinance/chart/item/candle/day/'+input_code+'.png?sidcode=1694091729352'; // Replace with the desired new image source
+  }
+  
+  const dataToSend = { changeSrc };
+	res.json(dataToSend);
+});
+
+// sendData_candle_week
+app.post('/sendData_candle_week', function(req, res) {
+	var changeSrc;
+  if(input_code==0){
+    changeSrc = 'stockchart_noImg.png'
+  }else{
+    changeSrc = 'https://ssl.pstatic.net/imgfinance/chart/item/candle/week/'+input_code+'.png?sidcode=1694091729352'; // Replace with the desired new image source
+  }
+  
+  const dataToSend = { changeSrc };
+	res.json(dataToSend);
+});
+
+// sendData_candle_month
+app.post('/sendData_candle_month', function(req, res) {
+  var changeSrc;
+  if(input_code==0){
+    changeSrc = 'stockchart_noImg.png'
+  }else{
+    changeSrc = 'https://ssl.pstatic.net/imgfinance/chart/item/candle/month/'+input_code+'.png?sidcode=1694091729352'; // Replace with the desired new image source
+  }
+	
+	const dataToSend = { changeSrc };
+	res.json(dataToSend);
+});
+
+// sendData_line_day
+app.post('/sendData_line_day', function(req, res) {
+  var changeSrc;
+  if(input_code==0){
+    changeSrc = 'stockchart_noImg.png'
+  }else{
+    changeSrc = 'https://ssl.pstatic.net/imgfinance/chart/item/area/day/'+input_code+'.png?sidcode=1694091729352'; // Replace with the desired new image source
+  }
+
+	const dataToSend = { changeSrc };
+	res.json(dataToSend);
+});
+
+// sendData_line_month3
+app.post('/sendData_line_month3', function(req, res) {
+	var changeSrc;
+  if(input_code==0){
+    changeSrc = 'stockchart_noImg.png'
+  }else{
+    changeSrc = 'https://ssl.pstatic.net/imgfinance/chart/item/area/month3/'+input_code+'.png?sidcode=1694091729352'; // Replace with the desired new image source
+  }
+  
+  const dataToSend = { changeSrc };
+	res.json(dataToSend);
+});
+
+// sendData_line_year1
+app.post('/sendData_line_year1', function(req, res) {
+	var changeSrc;
+  if(input_code==0){
+    changeSrc = 'stockchart_noImg.png'
+  }else{
+    changeSrc = 'https://ssl.pstatic.net/imgfinance/chart/item/area/year/'+input_code+'.png?sidcode=1694091729352'; // Replace with the desired new image source
+  }
+  
+  const dataToSend = { changeSrc };
+	res.json(dataToSend);
+});
+
+// sendData_line_year3
+app.post('/sendData_line_year3', function(req, res) {
+  var changeSrc;
+  if(input_code==0){
+    changeSrc = 'stockchart_noImg.png'
+  }else{
+    changeSrc = 'https://ssl.pstatic.net/imgfinance/chart/item/area/year3/'+input_code+'.png?sidcode=1694091729352'; // Replace with the desired new image source
+  }
+	
+	const dataToSend = { changeSrc };
+	res.json(dataToSend);
+});
+
+// sendData_line_year10
+app.post('/sendData_line_year10', function(req, res) {
+  var changeSrc;
+  if(input_code==0){
+    changeSrc = 'stockchart_noImg.png'
+  }else{
+    changeSrc = 'https://ssl.pstatic.net/imgfinance/chart/item/area/year10/'+input_code+'.png?sidcode=1694091729352'; // Replace with the desired new image source
+  }
+	
+	const dataToSend = { changeSrc };
+	res.json(dataToSend);
+});
 
 //----------------------------
+
+
 
 
 app.get('/get_code', function(req, res){
@@ -107,7 +226,8 @@ app.get('/get_code', function(req, res){
       }
       
       // 화면 출력
-      res.render('main', {_stock_name: stock_name, _stock_price: stock_price, _buy_or_sell: buy_or_sell,
+      res.render('main', {_buy_or_sell: buy_or_sell, _input_code: input_code, //_input_code,  _buy_or_sell은 화면에 나오지는 않고 정보 전달용
+      _stock_name: stock_name, _stock_price: stock_price, 
       _capital: capital_comma, _totalStock: totalStock_comma, _companyStock: companyStock_comma, _stocks: stocks_comma,
       _roe_p1: roe_p1, _roe_p2: roe_p2, _roe_p3: roe_p3, _roe_f1: roe_f1, _roe_f2: roe_f2, _roe_f3: roe_f3,
       _price_0y_10: price_0y_10, _price_10y_10: price_10y_10, _price_5y_10: price_5y_10, 
@@ -211,6 +331,16 @@ app.get('/get_change', function(req, res){
     fillIn2();
   }
 });
+
+app.get('/get_change', function(req, res){
+  // 화면 출력
+  res.render('main', {_stock_name: stock_name, _stock_price: stock_price, _buy_or_sell: buy_or_sell,
+    _capital: capital_comma, _totalStock: totalStock_comma, _companyStock: companyStock_comma, _stocks: stocks_comma,
+    _roe_p1: roe_p1, _roe_p2: roe_p2, _roe_p3: roe_p3, _roe_f1: roe_f1, _roe_f2: roe_f2, _roe_f3: roe_f3,
+    _price_0y_10: price_0y_10, _price_10y_10: price_10y_10, _price_5y_10: price_5y_10, 
+    _price_0y_9: price_0y_9, _price_10y_9: price_10y_9, _price_5y_9: price_5y_9,
+    _price_0y_8: price_0y_8, _price_10y_8: price_10y_8, _price_5y_8: price_5y_8});
+  });
 
 
 function fill_roeExcess10(){
@@ -460,35 +590,6 @@ function check_error(code){ // 존재하는 종목코드인지 확인, 존재하
 
   return "ERROR"
 }
-
-
-
-
-
-//aaa()
-
-//console.log(typeof capital)
-//console.log(roeExcess_arr);
-//console.log(roePredict_arr);
-//console.log(netIncome_arr);
-//console.log(share_arr);
-//console.log(excessProfit_arr);
-
-
-
-
-//console.log(totalStock);
-
-
-//console.log(NPV10/(totalStock*1000-companyStock)*100000000);
-
-
-
-
-
-
-
-
 
 
 

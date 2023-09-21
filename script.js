@@ -174,7 +174,7 @@ app.post('/sendData_line_year10', function(req, res) {
 //----------------------------
 
 
-
+  
 
 app.get('/get_code', function(req, res){
 
@@ -600,3 +600,6 @@ function check_error(code){ // 존재하는 종목코드인지 확인, 존재하
 
 app.listen(8080);
 console.log('Server is listening on port 8080');
+
+
+

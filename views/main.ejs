@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Furniture & Product Design Portfolio by Soyoung Park</title>
+    <title>SRIM Calculator</title>
     <link rel="stylesheet" href="style.css">
     <link rel="shortcut icon" src="favicon.ico" type="image/x-icon">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous">
@@ -15,11 +15,11 @@
     <!------------------>
 
     <!-- meta -->
-    <meta property="og:url" content="https://www.parksoyoung.store/">
-    <meta property="og:title" content="Soyoung Park Portfolio">
+    <meta property="og:url" content="https://www.srim.store/">
+    <meta property="og:title" content="SRIM Calculator">
     <meta property="og:type" content="website">
-    <meta property="og:image" content="img_url.png">
-    <meta property="og:description" content="Furniture & Product Design">
+    <meta property="og:image" content="thumbnail.png">
+    <!-- <meta property="og:description" content="Furniture & Product Design"> -->
 
 
     <!-- AJAX로 img_stock_graph scr 보내기 -->
@@ -366,11 +366,8 @@
     <div style="width: 100%; height: 5px; margin-top: 20px; background-color: rgb(246, 246, 246);"></div>
 
 
-
-    <!-- 여기 아래 그래프 나오는 부분부터 못함, 입력한 종목코드를 기역하는 방법을 모르겠음 -->
-
-    <table style="width: 96%; margin-left: 2%; font-size: 11px; ">  
-      <tr class="table_roe_year">
+    <table style="width: 96%; margin-left: 2%; margin-top: 5px; font-size: 11px; ">  
+      <tr id="form_table_tr">
         <!-- <td class="table_stock_graph_time" onclick="candle_day()" >일봉</td> -->
         <td class="table_stock_graph_time" id="candle_day">일봉</td>
         <td class="table_stock_graph_time" id="candle_week">주봉</td>
@@ -382,6 +379,27 @@
         <td class="table_stock_graph_time" id="line_year10">10년</td>
       </tr>
     </table>
+
+    <!-- 클릭시 진하게 표시 -->
+    <script>
+      const nonClick = document.querySelectorAll(".table_stock_graph_time");
+
+      function handleClick(event) {
+        // div에서 모든 "click" 클래스 제거
+        nonClick.forEach((e) => {
+          e.classList.remove("table_stock_graph_time2");
+        });
+        // 클릭한 div만 "click"클래스 추가
+        event.target.classList.add("table_stock_graph_time2");
+      }
+
+      nonClick.forEach((e) => {
+        e.addEventListener("click", handleClick);
+      });
+
+    </script>
+    <!-- ---------------------- -->
+
 
     <img id="img_stock_graph" src="stockchart_noImg.png" style="width: 96%; margin-left: 2%;"/>
 
@@ -397,3 +415,6 @@
 
 </body>
 </html>
+
+
+

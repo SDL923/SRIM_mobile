@@ -158,6 +158,19 @@
 }
 
 
+#form_table_tr{
+    width: 16.6%; 
+    height: 20px;  
+    font-size: 12px;
+    text-align: center; 
+    line-height: 20px;
+    /* font-weight: bold;  */
+    background-color: rgb(255, 255, 255);
+    
+    border-bottom : 1px solid rgb(0, 0, 0); 
+    border-collapse : collapse;
+}
+
 
 .table_stock_graph_time{
     width: 12.5%; 
@@ -167,8 +180,24 @@
     line-height: 20px;
     font-weight: bold; 
     background-color: rgb(255, 255, 255);
+    color: rgb(110, 110, 110); 
     
-    border-bottom : 1px solid rgb(0, 0, 0); 
+    border-bottom : 1px solid rgb(150, 150, 150); 
     border-collapse : collapse;
 }
+
+.table_stock_graph_time2{
+    width: 12.5%; 
+    height: 20px;  
+    font-size: 12px;
+    text-align: center; 
+    line-height: 20px;
+    font-weight: bold; 
+    background-color: rgb(255, 255, 255);
+    color: black;
+    
+    border-bottom : 2px solid rgb(0, 0, 0); 
+    border-collapse : collapse;
+}
+
 

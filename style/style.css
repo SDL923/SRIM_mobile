@@ -1,4 +1,19 @@
 
+#entire_div{
+    width: 100%;
+    height: auto;
+    background-color: white;
+}
+
+@media (min-width: 700px) {
+    #entire_div {
+      width: 700px;
+      margin: auto;
+      margin-top: 10px;
+      margin-bottom: 20px;
+    }
+}
+
 #decision_buy{
     width: 90%; 
     height: 80%; 
@@ -184,6 +199,7 @@
     
     border-bottom : 1px solid rgb(150, 150, 150); 
     border-collapse : collapse;
+    cursor : pointer
 }
 
 .table_stock_graph_time2{
@@ -198,6 +214,7 @@
     
     border-bottom : 2px solid rgb(0, 0, 0); 
     border-collapse : collapse;
+    cursor : pointer
 }
 
 

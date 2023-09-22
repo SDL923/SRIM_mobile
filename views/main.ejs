@@ -172,14 +172,16 @@
     </script>
 
 
-
 </head>
-<body style="overflow: scroll;">
+<body style="overflow: scroll; background-color:rgb(247, 231, 203)">
+
+  <div id="entire_div">
+
 
     <div style="width: 100%; height: 53px; background-color: rgb(249, 249, 249);">
       <div style="height: 53px; font-size: 18px; float: left; padding-left: 10px; line-height: 53px;">SRIM Calculator</div>
       <form class="d-flex float-right" action="/get_code" method="get" style="float: right; margin-top: 10px; padding-right: 10px;">
-        <input class="form-control me-2" type="text" name="_input_code" placeholder="stock code" style="width: 100px; height: 35px; margin: 0; padding: 5px; font-size: 15px; text-align: center;">
+        <input class="form-control me-2" type="text" name="_input_code_or_name" placeholder="stock code" style="width: 100px; height: 35px; margin: 0; padding: 5px; font-size: 15px; text-align: center;">
         <button class="btn btn-outline-dark" type="submit" style="width: 55px; height: 35px; padding: 4px; font-size: 12px;">Search</button>
         <!-- btn-dark -->
       </form>
@@ -369,7 +371,7 @@
     <table style="width: 96%; margin-left: 2%; margin-top: 5px; font-size: 11px; ">  
       <tr id="form_table_tr">
         <!-- <td class="table_stock_graph_time" onclick="candle_day()" >일봉</td> -->
-        <td class="table_stock_graph_time" id="candle_day">일봉</td>
+        <td class="table_stock_graph_time table_stock_graph_time2" id="candle_day">일봉</td>
         <td class="table_stock_graph_time" id="candle_week">주봉</td>
         <td class="table_stock_graph_time" id="candle_month">월봉</td>
         <td class="table_stock_graph_time" id="line_day">1일</td>
@@ -401,12 +403,22 @@
     <!-- ---------------------- -->
 
 
-    <img id="img_stock_graph" src="stockchart_noImg.png" style="width: 96%; margin-left: 2%;"/>
+
+    <% if(_first_chart=="0"){ %>
+        <!-- 코드 입력 전 아주처음 화면에서 나오는 회색 화면 -->
+        <img id="img_stock_graph" src="stockchart_noImg.png" style="width: 96%; margin-left: 2%;"/>
+    <% }else{ %>
+        <!-- 코드를 입력하고 나서는 처음 화면에 일봉 차트 표시 -->
+        <img id="img_stock_graph" src="https://ssl.pstatic.net/imgfinance/chart/item/candle/day/<%= _input_code %>.png?sidcode=1694091729352" style="width: 96%; margin-left: 2%;"/>
+    <% } %>
+
+
 
     <div style="width: 100%; height: 5px; margin-top: 20px; background-color: rgb(246, 246, 246);"></div>
 
 
 
+  </div>
 
 
     <!-- Bootstrap -->
